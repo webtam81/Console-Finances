@@ -87,7 +87,21 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+//tests
+console.log(finances[0][1]);
+console.log(finances[1][1]);
+console.log(finances[85][1]);
+
+//variables
+
+
 //total months
 let totalMonths = finances.length;
 console.log(totalMonths);
 
+//total profit/losses
+let totalPL = 0;
+for (let i = 0; i < totalMonths; i++) {
+  totalPL = totalPL + finances[i][1];
+  console.log(totalPL);
+}
