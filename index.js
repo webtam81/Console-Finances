@@ -88,28 +88,51 @@ var finances = [
 ];
 
 //tests
+//first array - list of months, second array - data
+/*console.log(finances[3][1]); 
 console.log(finances[0][1]);
 console.log(finances[1][1]);
 console.log(finances[85][1]);
+console.log(finances[0]);
+console.log(finances[0][0]);
+console.log(finances[0][1]);
+console.log(finances[1][0]);
+console.log(`---`);*/
 
 //variables
-
+let totalMonths = finances.length; //length of array - number of months
+let totalPL = 0; //total profit and loss so far
+let currentPL; //profit-loss in current month
+let prevPL; //profit-loss in previous month
 
 //total months
-let totalMonths = finances.length;
-console.log(totalMonths);
+//console.log(totalMonths);
 
 //total profit/losses
-let totalPL = 0;
 for (let i = 0; i < totalMonths; i++) {
   totalPL = totalPL + finances[i][1];
-  console.log(totalPL);
+  //console.log(totalPL);
 }
 
 //average of changes
 //currentmonth - prevmonth, repeat for each month, add values and divide by no. months...?
+let totalChanges = 0;
+for (let x = 0; x < totalMonths; x++) {
+  let currentMonth = finances[x];
+  if (x > 0) {
+    let prevMonth = finances[x - 1];
+    prevPL = prevMonth[1];
+    currentPL = currentMonth[1];
+    changePL = currentPL - prevPL;
+    console.log(`Change in profit/loss for this month: ${changePL}`);
+    totalChanges = totalChanges + changePL;
+    //console.log(currentMonth[1]);
+    console.log(`Total changes in profit/loss: ${totalChanges}`);
+  }
+}
 
 //Console
 console.log(`Financial Analysis`);
 console.log(`------------------`);
+console.log(`Total Months: ${totalMonths}`);
 console.log(`Total: $${totalPL}`);
