@@ -1,3 +1,4 @@
+//first array - list of months, second array - data
 var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
@@ -86,7 +87,6 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
-//first array - list of months, second array - data
 
 //variables
 let totalMonths = finances.length; //length of array - number of months
@@ -94,8 +94,8 @@ let totalPL = 0; //total profit and loss so far
 let totalChanges = 0; //value of changes so far
 let highPL = 0; //greatest increase
 let lowPL = 0; //greatest decrease
-let highMonth;
-let lowMonth;
+let highMonth; //month with greatest increase in p/l
+let lowMonth; //month with greatest decrease in p/l
 
 //calculations
 
@@ -110,7 +110,7 @@ for (let x = 0; x < totalMonths; x++) {
     changePL = currentMonth[1] - prevMonth[1];
     totalChanges = totalChanges + changePL;
 
-    //keep track of highest and lowest changes
+    //keep track of greatest increases and decreases in p/l
     if (changePL > highPL) {
       highPL = changePL;
       highMonth = currentMonth;
