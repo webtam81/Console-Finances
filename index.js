@@ -91,49 +91,38 @@ var finances = [
 //variables
 let totalMonths = finances.length; //length of array - number of months
 let totalPL = 0; //total profit and loss so far
-//let currentPL; //profit-loss in current month
-//let prevPL; //profit-loss in previous month
+let totalChanges = 0; //value of changes so far
 let highPL = 0; //greatest increase
 let lowPL = 0; //greatest decrease
+let highMonth;
+let lowMonth;
 
-//average of changes
-//Get values for current month minus previous month, repeat for each month, add values and divide by number of months - 1
-//totalChanges = value of changes so far
+//calculations
+
 //currentMonth = current month's array
 //prevMonth = previous month's array (currentMonth index minus 1)
-let totalChanges = 0;
 for (let x = 0; x < totalMonths; x++) {
   totalPL = totalPL + finances[x][1];
+  //Get values for current month minus previous month, repeat for each month and add up
   let currentMonth = finances[x];
   if (x > 0) {
     let prevMonth = finances[x - 1];
-    //prevPL = prevMonth[1];
-    //currentPL = currentMonth[1];
-    //changePL = currentPL - prevPL;
     changePL = currentMonth[1] - prevMonth[1];
-    //console.log(`Change in profit/loss for this month: ${changePL}`);
     totalChanges = totalChanges + changePL;
 
-
-    //highest and lowest
+    //keep track of highest and lowest changes
     if (changePL > highPL) {
       highPL = changePL;
-      console.log(changePL);
-      console.log(currentMonth[0]);
+      highMonth = currentMonth;
     }
     if (changePL < lowPL) {
       lowPL = changePL;
-      console.log(changePL);
-      console.log(currentMonth[0]);
+      lowMonth = currentMonth;
     }
-    
-    
-    //console.log(`Total changes in profit/loss: ${totalChanges}`);
-    //console.log(`previous month ${prevMonth}`);
-    //console.log(`current month ${currentMonth}`);
   }
 
 }
+//get average change - divide total changes by number of months - 1 and then round down
 let avgChanges = totalChanges / (totalMonths -1);
 avgChanges = Math.round((avgChanges + Number.EPSILON) * 100) / 100;
 
@@ -143,3 +132,5 @@ console.log(`------------------`);
 console.log(`Total Months: ${totalMonths}`);
 console.log(`Total: $${totalPL}`);
 console.log(`Average Change: ${avgChanges}`);
+console.log(`Greatest Increase in Profits/Losses: ${highMonth[0]} ($${highPL})`);
+console.log(`Greatest Decrease in Profits/Losses: ${lowMonth[0]} ($${lowPL})`);
