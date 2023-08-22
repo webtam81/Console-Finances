@@ -115,7 +115,10 @@ for (let i = 0; i < totalMonths; i++) {
 }
 
 //average of changes
-//currentmonth - prevmonth, repeat for each month, add values and divide by no. months...?
+//Get values for current month minus previous month, repeat for each month, add values and divide by number of months - 1
+//totalChanges = how many changes so far
+//currentMonth = current month's array
+//prevMonth = previous month's array (currentMonth index minus 1)
 let totalChanges = 0;
 for (let x = 0; x < totalMonths; x++) {
   let currentMonth = finances[x];
@@ -124,12 +127,16 @@ for (let x = 0; x < totalMonths; x++) {
     prevPL = prevMonth[1];
     currentPL = currentMonth[1];
     changePL = currentPL - prevPL;
-    console.log(`Change in profit/loss for this month: ${changePL}`);
+    //console.log(`Change in profit/loss for this month: ${changePL}`);
     totalChanges = totalChanges + changePL;
     //console.log(currentMonth[1]);
-    console.log(`Total changes in profit/loss: ${totalChanges}`);
+    //console.log(`Total changes in profit/loss: ${totalChanges}`);
   }
+  let avgChanges = totalChanges / (totalMonths -1);
+  avgChanges = Math.round((avgChanges + Number.EPSILON) * 100) / 100
+  console.log(`average changes in profit/loss: ${avgChanges}`);
 }
+console.log(`average changes in profit/loss: ${avgChanges}`);
 
 //Console
 console.log(`Financial Analysis`);
