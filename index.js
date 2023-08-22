@@ -86,18 +86,7 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
-
-//tests
 //first array - list of months, second array - data
-/*console.log(finances[3][1]); 
-console.log(finances[0][1]);
-console.log(finances[1][1]);
-console.log(finances[85][1]);
-console.log(finances[0]);
-console.log(finances[0][0]);
-console.log(finances[0][1]);
-console.log(finances[1][0]);
-console.log(`---`);*/
 
 //variables
 let totalMonths = finances.length; //length of array - number of months
@@ -107,15 +96,6 @@ let totalPL = 0; //total profit and loss so far
 let highPL = 0; //greatest increase
 let lowPL = 0; //greatest decrease
 
-//total months
-//console.log(totalMonths);
-
-//total profit/losses
-for (let i = 0; i < totalMonths; i++) {
-  totalPL = totalPL + finances[i][1];
-  //console.log(totalPL);
-}
-
 //average of changes
 //Get values for current month minus previous month, repeat for each month, add values and divide by number of months - 1
 //totalChanges = value of changes so far
@@ -123,6 +103,7 @@ for (let i = 0; i < totalMonths; i++) {
 //prevMonth = previous month's array (currentMonth index minus 1)
 let totalChanges = 0;
 for (let x = 0; x < totalMonths; x++) {
+  totalPL = totalPL + finances[x][1];
   let currentMonth = finances[x];
   if (x > 0) {
     let prevMonth = finances[x - 1];
