@@ -10,7 +10,7 @@ Iteration, arrays and operators and conditional statements are used.
 
 View on GitHub Pages here: [https://webtam81.github.io/Console-Finances/](https://webtam81.github.io/Console-Finances/) and press F12 to open the console and see the results.
 
-![Screenshot of the Console-Finances website](w4-console-finances.png)
+![Screenshot of the Console-Finances website](./images/w4-console-finances.png)
 
 ## License
 
