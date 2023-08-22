@@ -105,3 +105,11 @@ for (let i = 0; i < totalMonths; i++) {
   totalPL = totalPL + finances[i][1];
   console.log(totalPL);
 }
+
+//average of changes
+//currentmonth - prevmonth, repeat for each month, add values and divide by no. months...?
+
+//Console
+console.log(`Financial Analysis`);
+console.log(`------------------`);
+console.log(`Total: $${totalPL}`);
